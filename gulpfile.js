@@ -61,7 +61,7 @@ var styleTask = function(stylesPath, srcs) {
     .pipe($.changed(stylesPath, {extension: '.css'}))
     .pipe($.autoprefixer(AUTOPREFIXER_BROWSERS))
     .pipe(gulp.dest('.tmp/' + stylesPath))
-    .pipe($.minifyCss())
+    .pipe($.cssmin())
     .pipe(gulp.dest(dist(stylesPath)))
     .pipe($.size({title: stylesPath}));
 };
@@ -87,7 +87,7 @@ var optimizeHtmlTask = function(src, dest) {
     })))
     // Concatenate and minify styles
     // In case you are still using useref build blocks
-    .pipe($.if('*.css', $.minifyCss()))
+    .pipe($.if('*.css', $.cssmin()))
     .pipe(assets.restore())
     .pipe($.useref())
     // Minify any HTML
@@ -222,7 +222,7 @@ gulp.task('clean', function() {
 });
 
 // Watch files for changes & reload
-gulp.task('serve', ['styles', 'elements', 'js'], function() {
+gulp.task('serve', ['styles', 'elements','js'], function() {
   browserSync({
     port: 5000,
     notify: false,
@@ -245,7 +245,7 @@ gulp.task('serve', ['styles', 'elements', 'js'], function() {
     }
   });
 
-  gulp.watch(['app/**/*.html'], [reload]);
+  gulp.watch(['app/**/*.html'], reload);
   gulp.watch(['app/styles/**/*.css'], ['styles', reload]);
   gulp.watch(['app/elements/**/*.css'], ['elements', reload]);
   gulp.watch(['app/{scripts,elements}/**/*.js'], ['js',reload]);

@@ -13,31 +13,60 @@ subject to an additional IP rights grant found at http://polymer.github.io/PATEN
 
 <style is="custom-style">
 
-  /*
-   Polymer includes a shim for CSS Custom Properties that we can use for application theming.
-   Below, you'll find the default palette for the Polymer Starter Kit layout. Feel free to play
-   with changing the colors used or generate your own palette of colours at MaterialPalette.com.
-
-   See https://www.polymer-project.org/1.0/docs/devguide/styling.html#xscope-styling-details
-   for further information on custom CSS properties.
-   */
-
   /* Application theme */
 
   :root {
-    --primary-text-color: #212121;
-    --primary-background-color: #ffffff;
-    --secondary-text-color: #737373;
-    --disabled-text-color: #9b9b9b;
-    --divider-color: #dbdbdb;
-    --primary-color: #3f51b5;
+    --primary-color: #fb8c00;
+    --dark-primary-color: #fb8c00;
     --light-primary-color: #c5cae9;
-    --dark-primary-color: #303f9f;
     --accent-color: #ff4081;
     --light-accent-color: #ff80ab;
     --dark-accent-color: #f50057;
-
-    /* Components */
+    --primary-background-color: #ffffff;
+    --primary-text-color: #424242;
+    --secondary-text-color: #424242;
+    --disabled-text-color: #656565;
+    --divider-color: #e0e0e0;
+    --paper-checkbox-checked-color: #fb8c00;
+    --paper-checkbox-checked-ink-color: #fb8c00;
+    --paper-checkbox-unchecked-color: #424242;
+    --paper-checkbox-unchecked-ink-color: #424242;
+    --paper-checkbox-label-color: #424242;
+    --paper-fab-background: #fb8c00;
+    --paper-fab-disabled-background: #e4e4e4;
+    --paper-fab-disabled-text: #656565;
+    --paper-icon-button-disabled-text: #e4e4e4;
+    --paper-input-container-color: #424242;
+    --paper-input-container-focus-color: #fb8c00;
+    --paper-input-container-invalid-color: #f44336;
+    --paper-input-container-input-color: #424242;
+    --paper-menu-background-color: #fafafa;
+    --paper-menu-color: #424242;
+    --paper-menu-disabled-color: #e4e4e4;
+    --paper-progress-active-color: #fb8c00;
+    --paper-progress-secondary-color: #959595;
+    --paper-radio-button-checked-color: #fb8c00;
+    --paper-radio-button-checked-ink-color: white;
+    --paper-radio-button-unchecked-color: #424242;
+    --paper-radio-button-unchecked-ink-color: #424242;
+    --paper-radio-button-label-color: #424242;
+    --paper-slider-knob-color: #fb8c00;
+    --paper-slider-active-color: #fb8c00;
+    --paper-slider-pin-color: #fb8c00;
+    --paper-spinner-layer-1-color: #fb8c00;
+    --paper-spinner-layer-2-color: #fb8c00;
+    --paper-spinner-layer-3-color: #fb8c00;
+    --paper-spinner-layer-4-color: #fb8c00;
+    --paper-tabs-selection-bar-color: white;
+    --paper-tab-ink: white;
+    --paper-toggle-button-checked-bar-color: #fb8c00;
+    --paper-toggle-button-checked-button-color: #fb8c00;
+    --paper-toggle-button-checked-ink-color: #fb8c00;
+    --paper-toggle-button-unchecked-bar-color: #424242;
+    --paper-toggle-button-unchecked-button-color: white;
+    --paper-toggle-button-unchecked-ink-color: white;
+    --paper-toolbar-background: #fb8c00;
+    --paper-toolbar-color: #ffffff;
 
     /* paper-drawer-panel */
     --drawer-menu-color: #ffffff;
@@ -47,6 +76,7 @@ subject to an additional IP rights grant found at http://polymer.github.io/PATEN
     /* paper-menu */
     --paper-menu-background-color: #fff;
     --menu-link-color: #111111;
+
   }
 
   /* General styles */
@@ -54,6 +84,18 @@ subject to an additional IP rights grant found at http://polymer.github.io/PATEN
   body {
     @apply(--layout-fullbleed);
     @apply(--layout-vertical);
+  }
+
+  body.welcome {
+    background-image: url("../../images/welcome.png");
+    background-repeat: no-repeat;
+    background-size: cover;
+  }
+
+  body.welcome section {
+    margin-top: 10%;
+    @apply(--layout-vertical);
+    @apply(--layout-center);
   }
 
   .space {

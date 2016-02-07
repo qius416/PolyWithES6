@@ -21,6 +21,19 @@ subject to an additional IP rights grant found at http://polymer.github.io/PATEN
       page.base(app.baseUrl.replace(/\/$/, ''));
     }
 
+    //back to home
+    function welcome(){
+      var bodyClasses = document.getElementsByTagName('body')[0].classList;
+      if(!bodyClasses.contains('welcome')) {
+        bodyClasses.add('welcome');
+      }
+    }
+
+    //enter into the real application.
+    function enter(){
+      document.getElementsByTagName('body')[0].classList.remove('welcome');
+    }
+
     // Middleware
     function scrollToTop(ctx, next) {
       app.scrollPageToTop();
@@ -38,11 +51,18 @@ subject to an additional IP rights grant found at http://polymer.github.io/PATEN
     });
 
     page('/', function() {
+      welcome();
       app.route = 'home';
     });
 
     page(app.baseUrl, function() {
+      welcome();
       app.route = 'home';
+    });
+
+    page('/signup', function() {
+      enter();
+      //app.route = 'signup';
     });
 
     page('/users', function() {

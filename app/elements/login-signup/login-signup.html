@@ -1,0 +1,63 @@
+<!--
+@license
+Copyright (c) 2015 The Polymer Project Authors. All rights reserved.
+This code may only be used under the BSD style license found at http://polymer.github.io/LICENSE.txt
+The complete set of authors may be found at http://polymer.github.io/AUTHORS.txt
+The complete set of contributors may be found at http://polymer.github.io/CONTRIBUTORS.txt
+Code distributed by Google as part of the polymer project is also
+subject to an additional IP rights grant found at http://polymer.github.io/PATENTS.txt
+-->
+
+<link rel="import" href="..\..\bower_components/polymer/polymer.html">
+
+<dom-module id="login-signup">
+  <template>
+    <style include="shared-styles">
+      :host {
+        display: block;
+        max-width: 500px;
+        --paper-dialog: {
+          @apply(--layout-vertical);
+          @apply(--layout-center);
+          opacity: 0.7;
+          width: 100%;
+          height: 100%;
+          margin: 0;
+        }
+      }
+      paper-icon-button {
+        color: #333;
+      }
+      paper-button#login {
+        width: 100%;
+        margin: 30px 0 30px 0;
+      }
+      paper-fab#closebtn {
+        @apply(--layout-self-end);
+        margin-right: 20px;
+      }
+    </style>
+      <div id="container">
+        <gold-email-input label="Email Address"></gold-email-input>
+        <paper-input label="Password" type="password"></paper-input>
+        <paper-button id="login" raised primary>Submit</paper-button>
+        <div id="btns">
+          <paper-icon-button icon="body-icons:google-plus"></paper-icon-button>
+          <paper-icon-button icon="body-icons:facebook"></paper-icon-button>
+          <paper-icon-button icon="body-icons:twitter"></paper-icon-button>
+          <paper-icon-button icon="body-icons:linkedid"></paper-icon-button>
+          <paper-icon-button id="account" icon="body-icons:new-account"></paper-icon-button>
+        </div>
+      </div>
+      <paper-dialog id="addAccount" on-iron-overlay-closed="closeModal" auto-fit-on-attach modal exit-animation="fade-out-animation">
+        <paper-fab id="closebtn" secondary icon="body-icons:close" on-click="closeModal"></paper-fab>
+        <h2>Sign Up for Karada System!</h2>
+        <gold-email-input label="email address"></gold-email-input>
+        <paper-input label="Password" type="password"></paper-input>
+        <paper-input label="Confirm Password" type="password"></paper-input>
+        <paper-input label="Name"></paper-input>
+        <paper-button raised>Submit</paper-button>
+      </paper-dialog>
+  </template>
+  <script src="index.js"></script>
+</dom-module>
